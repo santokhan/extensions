@@ -13,24 +13,48 @@ function applyRules(rules) {
         elements.forEach(el => {
             if (!el) return
 
-            if (
-                el.tagName === "INPUT" ||
-                el.tagName === "TEXTAREA" ||
-                el.tagName === "SELECT"
-            ) {
-                const setter = Object.getOwnPropertyDescriptor(
-                    window.HTMLInputElement.prototype,
-                    "value"
-                )?.set
+            const tag = el.tagName
 
-                if (setter) {
-                    setter.call(el, rule.value)
+            if (tag === "INPUT") {
+                const type = el.type?.toLowerCase()
+
+                if (type === "checkbox" || type === "radio") {
+                    el.checked =
+                        rule.value === "true" ||
+                        rule.value === "1" ||
+                        rule.value.toLowerCase() === "checked" ||
+                        rule.value.toLowerCase() === "on"
                 } else {
-                    el.value = rule.value
+                    const setter = Object.getOwnPropertyDescriptor(
+                        window.HTMLInputElement.prototype,
+                        "value"
+                    )?.set
+
+                    if (setter) {
+                        setter.call(el, rule.value)
+                    } else {
+                        el.value = rule.value
+                    }
                 }
 
                 el.dispatchEvent(new Event("input", { bubbles: true }))
                 el.dispatchEvent(new Event("change", { bubbles: true }))
+            } else if (tag === "TEXTAREA" || tag === "SELECT") {
+                el.value = rule.value
+                el.dispatchEvent(new Event("input", { bubbles: true }))
+                el.dispatchEvent(new Event("change", { bubbles: true }))
+            } else if (tag === "OPTION") {
+                const option = el
+                option.selected =
+                    option.value === rule.value ||
+                    option.text === rule.value ||
+                    option.textContent.trim() === rule.value
+
+                const parentSelect = option.parentElement
+                if (parentSelect && parentSelect.tagName === "SELECT") {
+                    parentSelect.dispatchEvent(new Event("input", { bubbles: true }))
+                    parentSelect.dispatchEvent(new Event("change", { bubbles: true }))
+                }
             }
         })
     })
