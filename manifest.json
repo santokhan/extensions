@@ -1,0 +1,25 @@
+{
+    "manifest_version": 3,
+    "name": "Auto Field Filler",
+    "version": "1.0",
+    "description": "Auto fill fields by name, id, or class",
+    "permissions": [
+        "storage",
+        "activeTab",
+        "scripting"
+    ],
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
