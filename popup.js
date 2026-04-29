@@ -36,12 +36,14 @@ addBtn.onclick = () => {
 }
 
 // Apply all rules
-applyAllBtn.onclick = () => {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
-        chrome.tabs.sendMessage(tabs[0].id, {
-            action: "applyAllRules"
+if (applyAllBtn) {
+    applyAllBtn.onclick = () => {
+        chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+            chrome.tabs.sendMessage(tabs[0].id, {
+                action: "applyAllRules"
+            })
         })
-    })
+    }
 }
 
 // Render rules
