@@ -5,19 +5,127 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rule Builder</title>
+    <style>
+        :root {
+            --color-primary-100: hsl(259, 80%, 18%);
+            --color-primary-200: hsl(259, 80%, 28%);
+            --color-primary-300: hsl(259, 80%, 38%);
+            --color-primary-400: hsl(259, 80%, 38%);
+            --color-primary-500: hsl(259, 80%, 48%);
+            --color-primary-600: hsl(259, 80%, 58%);
+            --color-primary-700: hsl(259, 80%, 68%);
+            --color-primary-800: hsl(259, 80%, 78%);
+            --color-primary-900: hsl(259, 80%, 88%);
+            --color-primary-950: hsl(259, 80%, 98%);
+        }
+
+        .text-primary-100 {
+            color: var(--color-primary-100);
+        }
+
+        .text-primary-200 {
+            color: var(--color-primary-200);
+        }
+
+        .text-primary-300 {
+            color: var(--color-primary-300);
+        }
+
+        .text-primary-400 {
+            color: var(--color-primary-400);
+        }
+
+        .text-primary-500 {
+            color: var(--color-primary-500);
+        }
+
+        .text-primary-600 {
+            color: var(--color-primary-600);
+        }
+
+        .text-primary-700 {
+            color: var(--color-primary-700);
+        }
+
+        .text-primary-800 {
+            color: var(--color-primary-800);
+        }
+
+        .text-primary-900 {
+            color: var(--color-primary-900);
+        }
+
+        .text-primary-950 {
+            color: var(--color-primary-950);
+        }
+
+        .bg-primary-100 {
+            background-color: var(--color-primary-100);
+        }
+
+        .bg-primary-200 {
+            background-color: var(--color-primary-200);
+        }
+
+        .bg-primary-300 {
+            background-color: var(--color-primary-300);
+        }
+
+        .bg-primary-400 {
+            background-color: var(--color-primary-400);
+        }
+
+        .bg-primary-500 {
+            background-color: var(--color-primary-500);
+        }
+
+        .bg-primary-600 {
+            background-color: var(--color-primary-600);
+        }
+
+        .bg-primary-700 {
+            background-color: var(--color-primary-700);
+        }
+
+        .bg-primary-800 {
+            background-color: var(--color-primary-800);
+        }
+
+        .bg-primary-900 {
+            background-color: var(--color-primary-900);
+        }
+
+        .bg-primary-950 {
+            background-color: var(--color-primary-950);
+        }
+    </style>
 </head>
 
 <body class="w-[320px]">
+    <header class="bg-gray-50 px-3 py-1.5">
+        <div class="flex items-center">
+            <img src="/assets/images/logo-white.png" alt="logo"
+                class="rounded-full size-9 object-cover aspect-square" />
+            <div class="grow">
+                <h2 class="text-lg font-bold leading-none text-primary-600">
+                    Inply
+                </h2>
+            </div>
+            <div class="">
+                <p class="text-sm font-semibold text-primary-800">
+                    By <a href="https://facebook.com/SantoKhan1999" target="_blank" class="underline"
+                        rel="noopener">Santo</a>
+                </p>
+            </div>
+        </div>
+
+    </header>
 
     <div class="p-4 space-y-3">
-
-        <h2 class="text-lg font-semibold text-gray-800 text-center">
-            Rule Builder by <a href="https://facebook.com/SantoKhan1999" target="_blank" class="underline">Santo</a>
-        </h2>
-
         <!-- Select -->
         <select id="type"
-            class="w-full border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400">
+            class="w-full border border-gray-300 rounded-md px-2 py-1 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+            title="Selector">
             <option value="name">Name</option>
             <option value="id">ID</option>
             <option value="class">Class</option>
