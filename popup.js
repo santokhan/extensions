@@ -66,14 +66,14 @@ function renderRules() {
 
             <div class="flex gap-2 justify-between items-center">
                 <button
-                    class="apply px-2 py-1 text-xs bg-blue-500 text-white rounded"
+                    class="apply px-2 py-1 text-xs bg-blue-500 hover:bg-blue-600 text-white rounded"
                     data-index="${index}"
                 >
                     Apply
                 </button>
 
                 <button
-                    class="delete px-2 py-1 text-xs bg-red-500 text-white rounded"
+                    class="delete px-2 py-1 text-xs bg-red-500 hover:bg-red-600 text-white rounded"
                     data-index="${index}"
                 >
                     Delete
